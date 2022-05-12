@@ -16,7 +16,7 @@ from sklearn.preprocessing import LabelEncoder
 from pdf2image import convert_from_path 
 import glob 
 import pytesseract
-pytesseract.pytesseract.tesseract_cmd = r'pytess//tesseract.exe' 
+pytesseract.pytesseract.tesseract_cmd = r'pytess/tesseract.exe' 
 # import shutil 
 
 
@@ -34,7 +34,7 @@ def extractTextFromPDF(pdf_location):
     text = ""
     pdfs = glob.glob(pdf_location)
     for pdf_path in pdfs:
-        pages = convert_from_path(pdf_path, 500, poppler_path = r'Data//poppler-0.68.0//bin')
+        pages = convert_from_path(pdf_path, 500, poppler_path = r'Data/poppler-0.68.0/bin')
 
         for pageNum,imgBlob in enumerate(pages):
             text_per_page = pytesseract.image_to_string(imgBlob, lang='eng')
